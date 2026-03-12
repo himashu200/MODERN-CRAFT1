@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODERN CRAFT | real estate & construction</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #fafbfc;
+      color: #1e2b37;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 25px;
+    }
+
+    /* header / navbar */
+    .navbar {
+      background: #0b2b26; /* deep green-teal, evokes construction/trust */
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .logo h1 span {
+      font-weight: 300;
+      color: #ffb74d;
+      font-size: 1.2rem;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #f0f7f4;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+      font-size: 1.1rem;
+    }
+    .nav-links a:hover {
+      border-bottom-color: #ffb74d;
+      color: white;
+    }
+
+    /* page content sections */
+    .page-section {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem 2.8rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 10px 25px rgba(0, 20, 10, 0.05);
+      transition: 0.2s;
+      border: 1px solid #eef3f0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0b2b26;
+      margin-bottom: 1.8rem;
+      border-left: 8px solid #ffb74d;
+      padding-left: 1.3rem;
+    }
+
+    .contact-grid, .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: #f5f9f7;
+      padding: 1.2rem 1.5rem;
+      border-radius: 24px;
+    }
+    .info-item i {
+      font-size: 2rem;
+      color: #0b2b26;
+      min-width: 40px;
+    }
+    .info-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      color: #1e3a3a;
+    }
+    .info-item p, .info-item a {
+      color: #2f4f4f;
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-word;
+    }
+    .info-item a:hover {
+      color: #b45f1b;
+      text-decoration: underline;
+    }
+
+    .address-block {
+      background: #eef5f2;
+      padding: 1.5rem 2rem;
+      border-radius: 30px;
+      margin-top: 1.5rem;
+      font-style: normal;
+      line-height: 1.8;
+      border-left: 6px solid #0b2b26;
+    }
+    .address-block i {
+      color: #0b2b26;
+      margin-right: 12px;
+      width: 24px;
+    }
+
+    .policy-terms {
+      background: #f5f7f6;
+    }
+
+    .policy-block {
+      margin-bottom: 2rem;
+    }
+    .policy-block h3 {
+      font-size: 1.6rem;
+      color: #1d4e4a;
+      margin-bottom: 0.8rem;
+    }
+    .policy-block p, .policy-block li {
+      color: #2c423f;
+    }
+    .policy-block ul {
+      padding-left: 1.8rem;
+      margin: 0.8rem 0;
+    }
+
+    hr.divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b9cfc7, transparent);
+      margin: 2rem 0;
+    }
+
+    /* footer */
+    .footer {
+      background: #0b2b26;
+      color: #cfdcd7;
+      padding: 2rem 0;
+      border-radius: 40px 40px 0 0;
+      margin-top: 3rem;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer .copyright {
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+    .footer .copyright strong {
+      color: white;
+      font-weight: 600;
+    }
+    .footer .powered {
+      margin-top: 0.6rem;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.06);
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+    }
+    .footer .powered a {
+      color: #ffb74d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer .powered a:hover {
+      text-decoration: underline;
+    }
+
+    /* responsive touches */
+    @media (max-width: 700px) {
+      .navbar .container {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .page-section {
+        padding: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    /* button effect (contact CTA) */
+    .btn-phone {
+      display: inline-block;
+      background: #0b2b26;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      text-decoration: none;
+      margin-top: 0.8rem;
+      border: 2px solid #ffb74d;
+      transition: 0.2s;
+    }
+    .btn-phone i {
+      margin-right: 10px;
+    }
+    .btn-phone:hover {
+      background: #1d4e4a;
+      border-color: #ffa726;
+    }
+
+    .badge {
+      background: #ffeacc;
+      color: #5c3e1f;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <h1>MODERN CRAFT <span>built on trust</span></h1>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- HOME / HERO (section includes nature of business + quick contact) -->
+    <section id="home" class="page-section" style="background: linear-gradient(145deg, #ffffff, #f3f8f5);">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+        <div style="flex: 2; min-width: 260px;">
+          <span class="badge"><i class="fas fa-hard-hat"></i> real estate & construction</span>
+          <h2 style="font-size: 2.8rem; line-height: 1.2; margin: 1rem 0 0.5rem; color: #0b2b26;">MODERN CRAFT</h2>
+          <p style="font-size: 1.3rem; color: #3f5a55; max-width: 600px;">Your partner in quality real estate and construction-related activities across Assam.</p>
+          <div style="margin: 2rem 0 1rem;">
+            <a href="tel:+919435706060" class="btn-phone"><i class="fas fa-phone-alt"></i> +91 94357 06060</a>
+            <span style="margin-left: 1.5rem; font-size: 1.2rem;"><i class="far fa-envelope" style="color:#0b2b26;"></i> <a href="mailto:infracraftconcretehublimited@gmail.com" style="color:#1d4e4a;">infracraftconcretehublimited<br>@gmail.com</a></span>
+          </div>
+        </div>
+        <div style="flex:1; background: #0b2b26; color: white; padding: 2rem; border-radius: 40px; box-shadow: 0 20px 30px -10px #0b2b2633;">
+          <i class="fas fa-city" style="font-size: 3rem; opacity: 0.8;"></i>
+          <p style="margin-top: 1rem; font-weight: 300;">GST / HUB of INFRASTRUCTURE</p>
+          <p style="font-size: 1.2rem;"><i class="fas fa-map-pin"></i> Pillingkata, Guwahati</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US section (explicit nature of business, address integrated) -->
+    <section id="about" class="page-section">
+      <h2 class="section-title"><i class="fas fa-building" style="margin-right: 15px;"></i> About MODERN CRAFT</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="fas fa-briefcase"></i>
+          <div>
+            <h3>Nature of business</h3>
+            <p>Real estate development · construction · project management · infrastructure</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-calendar-alt"></i>
+          <div>
+            <h3>Established</h3>
+            <p>Serving Assam with integrity and modern techniques.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- full address block (as per details) -->
+      <address class="address-block">
+        <i class="fas fa-map-marker-alt fa-fw"></i> <strong>Registered Address:</strong><br>
+        Building No./Flat No.: NA <br>
+        Name Of Premises/Building: Pillingkata <br>
+        Road/Street: Lechiyagaon Hillside <br>
+        Locality/Sub Locality: Bakrapara <br>
+        City/Town/Village: Guwahati <br>
+        District: Kamrup Metropolitan <br>
+        State: Assam · Pin 781029
+      </address>
+
+      <p style="margin-top: 1rem; font-style: italic;"><i class="fas fa-trowel"></i> MODERN CRAFT is the trademark name for construction excellence, a unit under INFRASTRUCTURE CONCRETE HUB LIMITED.</p>
+    </section>
+
+    <!-- CONTACT page section (explicit contact, mobile, email, address again) -->
+    <section id="contact" class="page-section">
+      <h2 class="section-title"><i class="fas fa-address-card"></i> Contact & location</h2>
+      <div class="contact-grid">
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h3>Mobile (Business)</h3>
+            <p><a href="tel:+919435706060">+91 94357 06060</a> (also WhatsApp)</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <p><a href="mailto:infracraftconcretehublimited@gmail.com">infracraftconcretehublimited<br>@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-globe"></i>
+          <div>
+            <h3>Office hours</h3>
+            <p>Mon–Sat: 9:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- duplicate address for clarity, but condensed -->
+      <div style="background: #e2f0ea; padding: 1.5rem; border-radius: 24px; margin-top: 1.5rem;">
+        <p><i class="fas fa-location-dot" style="color:#0b2b26; margin-right: 10px;"></i> <strong>Visit / correspondence:</strong> Pillingkata, Lechiyagaon Hillside, Bakrapara, Guwahati, Kamrup Metropolitan, Assam 781029</p>
+      </div>
+
+      <!-- embedded static map placeholder (text map) -->
+      <div style="background: #cfdcd7; border-radius: 30px; padding: 2rem; text-align: center; margin-top: 2rem; color:#1e3a3a;">
+        <i class="fas fa-map" style="font-size: 3rem;"></i>
+        <p><strong>📍 Guwahati – Kamrup Metro</strong><br>Pin 781029 · Landmark: near Pillingkata Hillside</p>
+      </div>
+    </section>
+
+    <!-- PRIVACY POLICY section -->
+    <section id="privacy" class="page-section policy-terms">
+      <h2 class="section-title"><i class="fas fa-lock"></i> Privacy policy</h2>
+      <div class="policy-block">
+        <p>Last updated: April 2025 · MODERN CRAFT (INFRACRAFT CONCRETE HUB LIMITED) respects your privacy.</p>
+        <ul>
+          <li><strong>Information we collect:</strong> When you contact us via phone, email, or website forms, we may collect your name, contact details, and project requirements to serve you better.</li>
+          <li><strong>Use of data:</strong> Data is used only for real estate/construction communication, legal compliance, and improving our services. We never sell or rent your information.</li>
+          <li><strong>Sharing:</strong> Limited data may be shared with authorities if required by law. We do not share with third-party marketers.</li>
+          <li><strong>Security:</strong> We implement reasonable safeguards, though no internet transmission is 100% secure.</li>
+          <li><strong>Contact:</strong> For privacy concerns, email us at <a href="mailto:infracraftconcretehublimited@gmail.com">infracraftconcretehublimited@gmail.com</a>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TERMS AND CONDITIONS section -->
+    <section id="terms" class="page-section policy-terms">
+      <h2 class="section-title"><i class="fas fa-file-contract"></i> Terms & conditions</h2>
+      <div class="policy-block">
+        <p>By using this website or engaging with MODERN CRAFT / INFRACRAFT CONCRETE HUB LIMITED, you agree to the following:</p>
+        <ul>
+          <li><strong>Business relationship:</strong> All construction and real estate services are subject to a separate written agreement. Website information is for general overview.</li>
+          <li><strong>Intellectual property:</strong> Content, logo, and materials are owned by MODERN CRAFT. Unauthorized use prohibited.</li>
+          <li><strong>Limitation of liability:</strong> MODERN CRAFT shall not be liable for indirect damages arising from website use. Project details may change as per site conditions.</li>
+          <li><strong>Governing law:</strong> Disputes fall under jurisdiction of Guwahati, Assam courts.</li>
+          <li><strong>Modification:</strong> Terms may be updated without prior notice. Continued use implies acceptance.</li>
+        </ul>
+        <p style="margin-top: 1rem;"><i class="fas fa-gavel"></i> For any queries, please contact our mobile or email.</p>
+      </div>
+      <hr class="divider">
+      <div style="font-size: 0.95rem; color: #3f5650;">
+        <p><i class="fas fa-building"></i> INFRACRAFT CONCRETE HUB LIMITED (parent company) | CIN (example): U45400AS2025PLC000000</p>
+      </div>
+    </section>
+
+    <!-- extra business highlight -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0;">
+      <span style="background: #0b2b26; color: white; padding: 0.5rem 2rem; border-radius: 60px;"><i class="far fa-building"></i> Real estate projects</span>
+      <span style="background: #ffb74d; color: #0b2b26; padding: 0.5rem 2rem; border-radius: 60px;"><i class="fas fa-trowel"></i> Construction works</span>
+    </div>
+  </main>
+
+  <!-- FOOTER with copyright and powered by (exact line) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">
+        © 2025 <strong>MODERN CRAFT</strong>. All rights reserved.
+      </div>
+      <div class="powered">
+        Powered by <a href="#" target="_blank">INFRACRAFT CONCRETE HUB LIMITED</a>
+      </div>
+      <div style="margin-top: 1.5rem; display: flex; gap: 2rem; font-size: 0.9rem;">
+        <a href="#privacy" style="color:#bed9d0;">Privacy</a> <span>|</span>
+        <a href="#terms" style="color:#bed9d0;">Terms</a> <span>|</span>
+        <a href="#contact" style="color:#bed9d0;">Contact</a>
+      </div>
+      <p style="margin-top: 1rem;"><i class="fas fa-phone"></i> +91 94357 06060  |  <i class="fas fa-envelope"></i> infracraftconcretehublimited@gmail.com</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">Building No.: NA, Pillingkata, Lechiyagaon Hillside, Bakrapara, Guwahati, Assam 781029</p>
+    </div>
+  </footer>
+
+  <!-- smooth scroll on same-page anchor links (optional) -->
+  <script>
+    (function() {
+      const links = document.querySelectorAll('.nav-links a, .footer a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
